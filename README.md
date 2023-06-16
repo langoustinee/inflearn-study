@@ -26,7 +26,7 @@
 # 토비님의 강의
 
 ## 토비의 스프링 부트 - 이해와 원리
-- 해당 강의를 들으며 학습했던 내용을 [링크](https://jooneys-portfolio.notion.site/c64df02edb3e4e5c8f2c279ae19b3105)에 남겨놓았습니다.
+- 해당 강의를 들으며 학습했던 내용을 [링크]([https://jooneys-portfolio.notion.site/c64df02edb3e4e5c8f2c279ae19b3105](https://jooneys-portfolio.notion.site/c64df02edb3e4e5c8f2c279ae19b3105?pvs=4))에 남겨놓았습니다.
 
 <br><hr><br>
 
