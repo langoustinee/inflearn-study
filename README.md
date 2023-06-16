@@ -21,14 +21,16 @@
 
 ### 실전! Querydsl
 
-<br>
-  
----
-
-<br>
+<br><hr><br>
 
 # 토비님의 강의
 
 ## 토비의 스프링 부트 - 이해와 원리
-- [링크](https://jooneys-portfolio.notion.site/c64df02edb3e4e5c8f2c279ae19b3105)에 학습과 관련된 기록을 남겼습니다.
+- 해당 강의를 들으며 학습했던 내용을 [링크](https://jooneys-portfolio.notion.site/c64df02edb3e4e5c8f2c279ae19b3105)에 남겨놓았습니다.
 
+<br><hr><br>
+
+# 박우빈님의 강의
+
+## Practical Testing: 실용적인 테스트 가이드
+- 해당 강의를 들으며 학습했던 내용을 [링크](-)에 남겨놓았습니다.
