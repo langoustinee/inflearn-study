@@ -4,12 +4,17 @@ import lombok.Getter;
 import sample.cafekiosk.unit.beverage.Beverage;
 import sample.cafekiosk.unit.order.Order;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 public class CafeKiosk {
+
+    private static final LocalTime SHOP_OPEN_TIME = LocalTime.of(10, 0);
+    private static final LocalTime SHOP_CLOSE_TIME = LocalTime.of(22, 0);
 
     private final List<Beverage> beverages = new ArrayList<>();
 
@@ -43,7 +48,22 @@ public class CafeKiosk {
     }
 
     public Order createOrder() {
-        return new Order(LocalDateTime.now(), beverages);
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        LocalTime currentTime = currentDateTime.toLocalTime();
+        if (currentTime.isBefore(SHOP_OPEN_TIME) || currentTime.isAfter(SHOP_CLOSE_TIME)) {
+            throw new IllegalArgumentException("지금은 주문할 수 없는 시간입니다.");
+        }
+        return new Order(currentDateTime, beverages);
+    }
+
+    public Order createOrder(LocalDateTime currentDateTime) {
+        // 시간 데이터를 외부에서 받아와서 확인하도록 변경
+//        LocalDateTime currentDateTime = LocalDateTime.now();
+        LocalTime currentTime = currentDateTime.toLocalTime();
+        if (currentTime.isBefore(SHOP_OPEN_TIME) || currentTime.isAfter(SHOP_CLOSE_TIME)) {
+            throw new IllegalArgumentException("지금은 주문할 수 없는 시간입니다.");
+        }
+        return new Order(currentDateTime, beverages);
     }
 
 }
