@@ -26,9 +26,13 @@ class CafeKioskTest {
     @DisplayName("음료를 추가하면 주문 목록에 담긴다.")
     @Test
     void add() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
+
+        // when
         cafeKiosk.add(new Americano());
 
+        // then
         // List의 사이즈를 체크하는 AssertJ의 메서드 hasSize() 사용
 //        assertThat(cafeKiosk.getBeverages().size()).isEqualTo(1);
         assertThat(cafeKiosk.getBeverages()).hasSize(1);
@@ -38,11 +42,14 @@ class CafeKioskTest {
     @DisplayName("음료 여러 잔을 추가하면 주문 목록에 추가한 음료가 모두 담긴다.")
     @Test
     void addSeveralBeverages() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
 
+        // when
         cafeKiosk.add(americano, 3);
 
+        // then
         assertThat(cafeKiosk.getBeverages().get(0)).isEqualTo(americano);
         assertThat(cafeKiosk.getBeverages().get(1)).isEqualTo(americano);
         assertThat(cafeKiosk.getBeverages().get(2)).isEqualTo(americano);
@@ -51,9 +58,11 @@ class CafeKioskTest {
     @DisplayName("어떤 음료가 0잔 추가되면, 에러 메세지를 출력한다.")
     @Test
     void addZeroBeverages() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
 
+        // when & then
         // 0 이하의 경계값을 통한 예외 케이스 검증하기
         assertThatThrownBy(() -> cafeKiosk.add(americano, 0))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -63,20 +72,25 @@ class CafeKioskTest {
     @DisplayName("음료 1잔을 추가한 후 취소하면 주문 목록은 비어있다.")
     @Test
     void remove() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
 
         cafeKiosk.add(americano);
         assertThat(cafeKiosk.getBeverages()).hasSize(1);
 
+        // when
         // List가 비었는지를 체크할 AssertJ의 isEmpty() 메서드 사용
         cafeKiosk.remove(americano);
+
+        // then
         assertThat(cafeKiosk.getBeverages()).isEmpty();
     }
 
     @DisplayName("여러 음료를 추가한 후 전체 취소하면 주문 목록은 비어있다.")
     @Test
     void clear() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
         Lette lette = new Lette();
@@ -85,11 +99,15 @@ class CafeKioskTest {
         cafeKiosk.add(lette);
         assertThat(cafeKiosk.getBeverages()).hasSize(2);
 
+        // when
         cafeKiosk.clear();
+
+        // then
         assertThat(cafeKiosk.getBeverages()).isEmpty();
     }
 
-    @DisplayName("주문 목록에 담긴 아메리카노와 라떼의 총 가격은 10,000원이다.")
+//    @DisplayName("주문 목록에 담긴 아메리카노와 라떼의 총 가격은 10,000원이다.")
+    @DisplayName("주문 목록에 담긴 상품들의 총 금액을 계산할 수 있다.")
     @Test
     void calculrateTotalPrice() {
         // given
@@ -110,12 +128,15 @@ class CafeKioskTest {
     @DisplayName("음료를 추가하고 주문하면 해당 음료가 담긴 주문이 생성된다.")
     @Test
     void createOrder() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
         cafeKiosk.add(americano);
 
+        // when
         Order order = cafeKiosk.createOrder();
 
+        // then
         assertThat(order.getBeverages()).hasSize(1);
         assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
     }
@@ -123,13 +144,16 @@ class CafeKioskTest {
     @DisplayName("영업시간이 시작되면 음료를 주문할 수 있다.")
     @Test
     void createOrderWithCurrentTime() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
         cafeKiosk.add(americano);
 
+        // when
         // 경계값을 통한 해피 케이스 작성
         Order order = cafeKiosk.createOrder(LocalDateTime.of(2023, 6, 20, 10, 0));
 
+        // then
         assertThat(order.getBeverages()).hasSize(1);
         assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
     }
@@ -137,10 +161,12 @@ class CafeKioskTest {
     @DisplayName("영업이 시작되기 전이라면 주문할 수 없다.")
     @Test
     void createOrderOutsideOpenTime() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
         cafeKiosk.add(americano);
 
+        // when & then
         // 경계값을 통한 해피 케이스 작성
         assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(20203, 6, 20, 23, 0)))
                 .isInstanceOf(IllegalArgumentException.class)
