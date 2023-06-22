@@ -4,7 +4,6 @@ import lombok.Getter;
 import sample.cafekiosk.unit.beverage.Beverage;
 import sample.cafekiosk.unit.order.Order;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -40,11 +39,20 @@ public class CafeKiosk {
     }
 
     public int calculrateTotalPrice() {
-        int totalPrice = 0;
-        for(Beverage beverage : beverages) {
-            totalPrice += beverage.getPrice();
-        }
-        return totalPrice;
+        // TDD에서 테스트 통과만을 위한 Green 코드
+        // return 10000;
+
+        // 구현부 코드 1차 개선
+//        int totalPrice = 0;
+//        for(Beverage beverage : beverages) {
+//            totalPrice += beverage.getPrice();
+//        }
+//        return totalPrice;
+
+        // TDD를 통한 구현부 코드 2차 개선
+        return beverages.stream()
+                .mapToInt(Beverage::getPrice)
+                .sum();
     }
 
     public Order createOrder() {
