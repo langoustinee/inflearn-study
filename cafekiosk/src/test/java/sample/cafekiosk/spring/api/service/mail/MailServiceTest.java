@@ -3,10 +3,7 @@ package sample.cafekiosk.spring.api.service.mail;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.Spy;
+import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import sample.cafekiosk.spring.client.mail.MailSendClient;
 import sample.cafekiosk.spring.domain.history.mail.MailSendHistory;
@@ -16,14 +13,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.*;
 
 // 순수 Mock을 활용한 단위 테스트
 @ExtendWith(MockitoExtension.class)
 class MailServiceTest {
 
-//    @Mock
-    @Spy
+    @Mock
     private MailSendClient mailSendClient;
 
     @Mock
@@ -35,21 +32,10 @@ class MailServiceTest {
     @DisplayName("메일이 전송된다.")
     @Test
     void sendMail() {
-        // given
-
-        // @Mock, @InjectMock 어노테이션을 통해 주입 가능
-//        MailSendClient mailSendClient = mock(MailSendClient.class);
-//        MailSendHistoryRepository mailSendHistoryRepository = mock(MailSendHistoryRepository.class);
-//        MailService mailService = new MailService(mailSendClient, mailSendHistoryRepository);
-
-        // Stubbing
-//        when(mailSendClient.sendEmail(anyString(),anyString(), anyString(), anyString()))
-//                .thenReturn(true);
-
-        // @Spy 사용시에는 doReturn을 사용한다.
-        doReturn(true)
-                .when(mailSendClient)
-                .sendEmail(anyString(), anyString(), anyString(), anyString());
+        // given - Stubbing
+        // BDDMikito를 통해 BDD 스타일을 지킬 수 있다.
+        given(mailSendClient.sendEmail(anyString(), anyString(), anyString(), anyString()))
+                .willReturn(true);
 
         // when
         boolean result = mailService.sendMail("", "", "", "");
