@@ -7,6 +7,13 @@
 
 <br>
 
+# 박우빈님의 강의
+
+## Practical Testing: 실용적인 테스트 가이드
+- 해당 강의를 들으며 학습했던 내용을 [링크](https://www.notion.so/jooneys-portfolio/Practical-Testing-f333638940ea4f12973add7a5116993a?pvs=4)에 남겨놓았습니다.
+
+<br><hr><br>
+
 # 김영한님의 강의
 
 ## 김영한의 스프링 부트와 JPA 실무 완전 정복 로드맵
@@ -27,11 +34,6 @@
 # 토비님의 강의
 
 ## 토비의 스프링 부트 - 이해와 원리
-- 해당 강의를 들으며 학습했던 내용을 [링크](https://jooneys-portfolio.notion.site/c64df02edb3e4e5c8f2c279ae19b3105?pvs=4)에 남겨놓았습니다.
+- 해당 강의를 들으며 학습했던 내용을 [링크](https://www.notion.so/jooneys-portfolio/01d56180b8fe42b1b347946e000d5088?pvs=4)에 남겨놓았습니다.
 
 <br><hr><br>
-
-# 박우빈님의 강의
-
-## Practical Testing: 실용적인 테스트 가이드
-- 해당 강의를 들으며 학습했던 내용을 [링크](-)에 남겨놓았습니다.
