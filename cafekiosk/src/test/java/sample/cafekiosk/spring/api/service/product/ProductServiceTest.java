@@ -1,8 +1,6 @@
 package sample.cafekiosk.spring.api.service.product;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -29,6 +27,16 @@ class ProductServiceTest {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @BeforeAll
+    static void beforeAll() {
+        // 테스트 클래스 실행 전 동작
+    }
+
+    @BeforeEach
+    void setUp() {
+        // 테스트 케이스 마다 동작
+    }
 
     @AfterEach
     void tearDown() {
