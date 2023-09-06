@@ -26,16 +26,6 @@ class ProductServiceTest extends IntegrationTestSupport {
     @Autowired
     private ProductRepository productRepository;
 
-    @BeforeAll
-    static void beforeAll() {
-        // 테스트 클래스 실행 전 동작
-    }
-
-    @BeforeEach
-    void setUp() {
-        // 테스트 케이스 마다 동작
-    }
-
     @AfterEach
     void tearDown() {
         productRepository.deleteAllInBatch();
