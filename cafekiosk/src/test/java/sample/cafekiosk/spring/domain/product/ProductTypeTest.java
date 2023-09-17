@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static sample.cafekiosk.spring.domain.product.ProductType.*;
 
 class ProductTypeTest {
 
@@ -17,10 +18,10 @@ class ProductTypeTest {
     @Test
     void containsStockType1() {
         // given
-        ProductType givenType = ProductType.HANDMADE;
+        ProductType givenType = HANDMADE;
 
         // when
-        boolean result = ProductType.containsStockType(givenType);
+        boolean result = containsStockType(givenType);
 
         // then
         assertThat(result).isFalse();
@@ -30,10 +31,10 @@ class ProductTypeTest {
     @Test
     void containsStockType2() {
         // given
-        ProductType givenType = ProductType.BOTTLE;
+        ProductType givenType = BOTTLE;
 
         // when
-        boolean result = ProductType.containsStockType(givenType);
+        boolean result = containsStockType(givenType);
 
         // then
         assertThat(result).isTrue();
@@ -43,14 +44,14 @@ class ProductTypeTest {
     @Test
     void containsStockType3() {
         // given
-        ProductType givenType1 = ProductType.HANDMADE;
-        ProductType givenType2 = ProductType.BOTTLE;
-        ProductType givenType3 = ProductType.BAKERLY;
+        ProductType givenType1 = HANDMADE;
+        ProductType givenType2 = BOTTLE;
+        ProductType givenType3 = BAKERLY;
 
         // when
-        boolean result1 = ProductType.containsStockType(givenType1);
-        boolean result2 = ProductType.containsStockType(givenType2);
-        boolean result3 = ProductType.containsStockType(givenType3);
+        boolean result1 = containsStockType(givenType1);
+        boolean result2 = containsStockType(givenType2);
+        boolean result3 = containsStockType(givenType3);
 
         // then
         assertThat(result1).isFalse();
@@ -63,7 +64,7 @@ class ProductTypeTest {
     @ParameterizedTest
     void containsStockType4(ProductType productType, boolean expected) {
         // when
-        boolean result = ProductType.containsStockType(productType);
+        boolean result = containsStockType(productType);
 
         // then
         assertThat(result).isEqualTo(expected);
@@ -71,9 +72,9 @@ class ProductTypeTest {
 
     private static Stream<Arguments> provideProductTypesForCheckingStockType() {
         return Stream.of(
-                Arguments.of(ProductType.HANDMADE, false),
-                Arguments.of(ProductType.BOTTLE, true),
-                Arguments.of(ProductType.BAKERLY, true)
+                Arguments.of(HANDMADE, false),
+                Arguments.of(BOTTLE, true),
+                Arguments.of(BAKERLY, true)
         );
     }
     @DisplayName("상품 타입이 재고 관련 타입인지를 체크한다.")
@@ -81,7 +82,7 @@ class ProductTypeTest {
     @ParameterizedTest
     void containsStockType5(ProductType productType, boolean expected) {
         // when
-        boolean result = ProductType.containsStockType(productType);
+        boolean result = containsStockType(productType);
 
         // then
         assertThat(result).isEqualTo(expected);
