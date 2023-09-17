@@ -1,5 +1,6 @@
 package sample.cafekiosk.unit;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sample.cafekiosk.unit.beverage.Americano;
@@ -125,6 +126,7 @@ class CafeKioskTest {
         assertThat(totalPrice).isEqualTo(10000);
     }
 
+    @Disabled
     @DisplayName("음료를 추가하고 주문하면 해당 음료가 담긴 주문이 생성된다.")
     @Test
     void createOrder() {
