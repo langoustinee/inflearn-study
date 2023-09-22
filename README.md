@@ -9,7 +9,7 @@
 
 # 박우빈님의 강의
 
-## Practical Testing: 실용적인 테스트 가이드
+## ✅ Practical Testing: 실용적인 테스트 가이드(완강)
 - 해당 강의를 들으며 학습했던 내용을 [링크](https://www.notion.so/jooneys-portfolio/Practical-Testing-f333638940ea4f12973add7a5116993a?pvs=4)에 남겨놓았습니다.
 
 <br><hr><br>
