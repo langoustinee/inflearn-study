@@ -19,7 +19,7 @@ public class HelloApiTest {
         ResponseEntity<String> res = rest.getForEntity("http://localhost:8080/hello?name={name}", String.class, "Spring");
         assertThat(res.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(res.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
-        assertThat(res.getBody()).isEqualTo("Hello Spring");
+        assertThat(res.getBody()).isEqualTo("*Hello Spring*");
     }
 
     @DisplayName("Hello API HTTP 요청시 name 파라미터를 전달하지 않는다면 예외가 발생한다.")
