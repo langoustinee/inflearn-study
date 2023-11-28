@@ -10,22 +10,10 @@ import java.lang.annotation.Target;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-@UnitTest
-@interface FastUnitTest {
-
-}
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.ANNOTATION_TYPE, ElementType.METHOD})
-@Test
-@interface UnitTest {
-}
-
 public class HelloServiceTest {
 
     @DisplayName("SimpleHelloService의 sayHello 메소드를 호출하여 결과를 응답받는다.")
-    @FastUnitTest
+    @Test
     void simpleHelloService() {
         SimpleHelloService helloService = new SimpleHelloService();
 
