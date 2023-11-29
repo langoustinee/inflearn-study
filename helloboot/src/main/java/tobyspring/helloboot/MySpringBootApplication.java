@@ -12,5 +12,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @ComponentScan
 @Configuration
-public @interface MySpringBootAnnotation {
+public @interface MySpringBootApplication {
 }
