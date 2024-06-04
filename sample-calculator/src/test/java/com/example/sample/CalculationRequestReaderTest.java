@@ -1,5 +1,6 @@
 package com.example.sample;
 
+import org.example.sample.CalculationRequest;
 import org.example.sample.CalculationRequestReader;
 import org.junit.Test;
 
@@ -16,11 +17,11 @@ public class CalculationRequestReaderTest {
 
         // when
         System.setIn(new ByteArrayInputStream("2 + 3".getBytes()));
-        String[] result = calculationRequestReader.read();
+        CalculationRequest result = calculationRequestReader.read();
 
         // then
-        assertEquals(result[0], "2");
-        assertEquals(result[1], "+");
-        assertEquals(result[2], "3");
+        assertEquals(result.getNum1(), 2);
+        assertEquals(result.getOperator(), "+");
+        assertEquals(result.getNum2(), 3);
     }
 }
